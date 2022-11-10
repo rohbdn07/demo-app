@@ -1,13 +1,28 @@
 import React from 'react'
-import './App.css'
+import { BrowserRouter } from 'react-router-dom'
+import { Container } from '@mui/material'
 
-function App(): JSX.Element {
+import './App.css'
+import AppRoutes from './routes'
+
+/**
+ * @description main hub for functional components that renders.
+ * @returns JSX elements
+ */
+const App: React.FC = () => {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1>Todo app using react-redux</h1>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Container>
+          <div className='App'>
+            <header className='App-header'>
+              <h1>Todo app using react-redux</h1>
+            </header>
+            <AppRoutes />
+          </div>
+        </Container>
+      </BrowserRouter>
+    </>
   )
 }
 

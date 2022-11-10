@@ -10,8 +10,18 @@ const FormContainer = styled('div')({
   width: '550px',
 })
 
-// Text input form
+/**
+ *
+ * @returns text field input
+ */
 const TextInput: React.FC = () => {
+  const [todo, setTodo] = React.useState<string>('')
+
+  /** onChange handler for input todo */
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const value = event.target.value
+    setTodo(() => value)
+  }
   return (
     <FormContainer>
       <TextField
@@ -20,7 +30,8 @@ const TextInput: React.FC = () => {
         name='todo'
         fullWidth
         variant='outlined'
-        value={'hello world'}
+        value={todo}
+        onChange={handleChange}
       />
     </FormContainer>
   )

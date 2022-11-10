@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import HomePage from '../pages/HomePage'
 
 /**
- *
+ * @description Handles different routes of the application(pages)
  * @returns homePage routes to display page(s)
  */
 const AppRoutes = () => {

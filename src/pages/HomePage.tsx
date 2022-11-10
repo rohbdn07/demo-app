@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 
 import SmallButton from '../components/buttons/SmallButton'
 import TextInput from '../components/inputs/TextInput'
+import TodoList from '../components/todos/TodoList'
 
 // styles
 const Container = styled('div')({
@@ -25,8 +26,9 @@ const HomePage: React.FC = () => {
       <Container>
         <InputWapper>
           <TextInput />
-          <SmallButton />
+          <SmallButton text='ADD' bgColor='blue' />
         </InputWapper>
+        <TodoList />
       </Container>
     </>
   )

@@ -1,9 +1,8 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
-import postSlices from './reducer-slices/post-slices'
 import rootReducer from './reducers/rootReducer'
 
 export const store = configureStore({
-  reducer: { post: postSlices },
+  reducer: rootReducer,
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

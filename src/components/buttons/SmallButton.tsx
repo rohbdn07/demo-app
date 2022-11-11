@@ -4,7 +4,7 @@ import Box from '@mui/material/Box'
 
 interface ButtonProps {
   text: string
-  bgColor: 'red' | 'blue'
+  bgColor: 'black' | 'blue'
 }
 
 /**

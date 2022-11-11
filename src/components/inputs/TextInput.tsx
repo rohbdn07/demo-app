@@ -26,8 +26,9 @@ const TextInput: React.FC = () => {
     <FormContainer>
       <TextField
         id='outlined-required'
-        label='todo'
-        name='todo'
+        label='Put your post id'
+        name='Id'
+        type='number'
         fullWidth
         variant='outlined'
         value={todo}

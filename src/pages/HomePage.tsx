@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import Pagination from '@mui/material/Pagination'
+import Stack from '@mui/material/Stack'
 
 import SmallButton from '../components/buttons/SmallButton'
 import TextInput from '../components/inputs/TextInput'
-import TodoList from '../components/todos/TodoList'
+import PostList from '../components/posts/PostList'
 
 // styles
 const Container = styled('div')({
@@ -17,6 +19,7 @@ const InputWapper = styled('div')({
   display: 'flex',
   alignItems: 'baseline',
   justifyContent: 'center',
+  flexWrap: 'wrap',
 })
 
 // display components that comes under home page
@@ -26,9 +29,13 @@ const HomePage: React.FC = () => {
       <Container>
         <InputWapper>
           <TextInput />
-          <SmallButton text='ADD' bgColor='blue' />
+          <SmallButton text='Find' bgColor='blue' />
+          <SmallButton text='Find all' bgColor='black' />
         </InputWapper>
-        <TodoList />
+        <PostList />
+        <Stack spacing={2}>
+          <Pagination count={20} color='primary' size='small' page={2} />
+        </Stack>
       </Container>
     </>
   )

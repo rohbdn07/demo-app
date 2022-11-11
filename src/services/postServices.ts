@@ -23,7 +23,7 @@ const getAllPost = async (): Promise<PostModel[]> => {
 
 /** fetch just a particular post by its ID from baseUrl */
 const getPostById = async (id: number): Promise<PostModel> => {
-  const response = await axiosFetchAPI.get<PostModel>(`post/${id}`)
+  const response = await axiosFetchAPI.get<PostModel>(`posts/${id}`)
   return response?.data
 }
 

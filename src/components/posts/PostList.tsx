@@ -8,11 +8,10 @@ import ListItemAvatar from '@mui/material/ListItemAvatar'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 import Divider from '@mui/material/Divider'
-import Pagination from '@mui/material/Pagination'
-import Stack from '@mui/material/Stack'
 
 import { useAppSelector } from '../../redux/hooks'
 import usePagination from '../../hooks/Pagination'
+import PaginationEl from '../pagination/PaginationEl'
 
 /**
  * @description it display the list of posts
@@ -67,16 +66,15 @@ const PostList: React.FC = () => {
           </List>
         ))}
       {posts.length > 0 && (
-        <Stack spacing={2}>
-          <Pagination
-            count={maxPage}
-            color='primary'
-            size='small'
-            page={page}
-            defaultPage={page}
-            onChange={handlePageChange}
-          />
-        </Stack>
+        <PaginationEl
+          data={posts}
+          totalPage={maxPage}
+          currentPage={page}
+          defaultPage={1}
+          size={'small'}
+          color={'primary'}
+          handlePageChange={handlePageChange}
+        />
       )}
     </>
   )

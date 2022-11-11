@@ -2,6 +2,11 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { TextField } from '@mui/material'
 
+interface TextInputProps {
+  value: string
+  handleChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+}
+
 // styles...
 const FormContainer = styled('div')({
   display: 'flex',
@@ -14,14 +19,7 @@ const FormContainer = styled('div')({
  *
  * @returns text field input
  */
-const TextInput: React.FC = () => {
-  const [todo, setTodo] = React.useState<string>('')
-
-  /** onChange handler for input todo */
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const value = event.target.value
-    setTodo(() => value)
-  }
+const TextInput = (props: TextInputProps) => {
   return (
     <FormContainer>
       <TextField
@@ -31,8 +29,8 @@ const TextInput: React.FC = () => {
         type='number'
         fullWidth
         variant='outlined'
-        value={todo}
-        onChange={handleChange}
+        value={props.value}
+        onChange={props.handleChange}
       />
     </FormContainer>
   )

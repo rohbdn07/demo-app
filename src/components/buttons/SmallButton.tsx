@@ -12,6 +12,7 @@ interface ButtonProps {
  * @description display button
  * @param text button's name
  * @param bgColor background color of button
+ * @param clickHandler this function execute onClick event
  * @returns JSX Element
  */
 const SmallButton = ({ text, bgColor, clickHandler }: ButtonProps) => {

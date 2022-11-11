@@ -5,6 +5,7 @@ import Box from '@mui/material/Box'
 interface ButtonProps {
   text: string
   bgColor: 'black' | 'blue'
+  clickHandler?: () => void
 }
 
 /**
@@ -13,11 +14,16 @@ interface ButtonProps {
  * @param bgColor background color of button
  * @returns JSX Element
  */
-const SmallButton = ({ text, bgColor }: ButtonProps) => {
+const SmallButton = ({ text, bgColor, clickHandler }: ButtonProps) => {
   return (
     <>
       <Box sx={{ padding: '5px' }}>
-        <Button size='large' variant='contained' sx={{ bgcolor: `${bgColor}` }}>
+        <Button
+          size='large'
+          variant='contained'
+          sx={{ bgcolor: `${bgColor}` }}
+          onClick={clickHandler}
+        >
           {text}
         </Button>
       </Box>

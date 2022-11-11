@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import Pagination from '@mui/material/Pagination'
-import Stack from '@mui/material/Stack'
 
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import SmallButton from '../components/buttons/SmallButton'
 import TextInput from '../components/inputs/TextInput'
 import PostList from '../components/posts/PostList'
+import fetchPosts from '../redux/actions/posts/post-actions'
 
 // styles
 const Container = styled('div')({
@@ -13,6 +13,7 @@ const Container = styled('div')({
   backgroundColor: '#e5e5e5',
   padding: '10px',
   borderRadius: '10px',
+  marginBottom: '20px',
 })
 
 const InputWapper = styled('div')({
@@ -24,18 +25,24 @@ const InputWapper = styled('div')({
 
 // display components that comes under home page
 const HomePage: React.FC = () => {
+  const posts = useAppSelector((state) => state.post.allPosts)
+
+  const dispatch = useAppDispatch()
+
+  const clickHandler = () => {
+    if (posts?.length === 0) {
+      dispatch(fetchPosts())
+    }
+  }
   return (
     <>
       <Container>
         <InputWapper>
           <TextInput />
           <SmallButton text='Find' bgColor='blue' />
-          <SmallButton text='Find all' bgColor='black' />
+          <SmallButton text='Find all' bgColor='black' clickHandler={clickHandler} />
         </InputWapper>
         <PostList />
-        <Stack spacing={2}>
-          <Pagination count={20} color='primary' size='small' page={2} />
-        </Stack>
       </Container>
     </>
   )

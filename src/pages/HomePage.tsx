@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { useAppDispatch, useAppSelector } from '../redux/hooks'
+import { useAppDispatch } from '../redux/hooks'
 import SmallButton from '../components/buttons/SmallButton'
 import TextInput from '../components/inputs/TextInput'
 import PostList from '../components/posts/PostList'
-import fetchPosts from '../redux/actions/posts/post-actions'
+import { fetchParticularPostById, fetchPosts } from '../redux/actions/posts/post-actions'
 
 // styles
 const Container = styled('div')({
@@ -25,21 +25,29 @@ const InputWapper = styled('div')({
 
 // display components that comes under home page
 const HomePage: React.FC = () => {
-  const posts = useAppSelector((state) => state.post.allPosts)
-
   const dispatch = useAppDispatch()
+  const [postId, setPostId] = React.useState<string>('')
+
+  /** onChange handler for input todo */
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const value = event.target.value
+    setPostId(() => value)
+  }
 
   const clickHandler = () => {
-    if (posts?.length === 0) {
-      dispatch(fetchPosts())
-    }
+    dispatch(fetchPosts())
   }
+
+  const serachHandler = () => {
+    if (postId !== '') dispatch(fetchParticularPostById(parseInt(postId)))
+  }
+
   return (
     <>
       <Container>
         <InputWapper>
-          <TextInput />
-          <SmallButton text='Find' bgColor='blue' />
+          <TextInput value={postId} handleChange={handleChange} />
+          <SmallButton text='Find' bgColor='blue' clickHandler={serachHandler} />
           <SmallButton text='Find all' bgColor='black' clickHandler={clickHandler} />
         </InputWapper>
         <PostList />

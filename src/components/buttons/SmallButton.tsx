@@ -5,7 +5,7 @@ import Box from '@mui/material/Box'
 interface ButtonProps {
   text: string
   bgColor: 'black' | 'blue'
-  clickHandler?: () => void
+  clickHandler: () => void
 }
 
 /**

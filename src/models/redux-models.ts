@@ -7,4 +7,5 @@ export interface PostModel {
 export interface PostArrayModel {
   allPosts: PostModel[]
   postById: PostModel
+  message: string
 }

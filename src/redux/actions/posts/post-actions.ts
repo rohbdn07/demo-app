@@ -6,9 +6,12 @@ import { AppThunk } from '../../store'
 const fetchPosts = (): AppThunk => {
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
   return async (dispatch, getState) => {
-    const postResponse: PostModel[] = await postService.getAllPost()
-    console.log('the post', postResponse)
-    dispatch(setAllPost(postResponse))
+    try {
+      const postResponse: PostModel[] = await postService.getAllPost()
+      dispatch(setAllPost(postResponse))
+    } catch (error) {
+      console.log('Error', error)
+    }
   }
 }
 

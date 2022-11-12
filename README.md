@@ -1,10 +1,20 @@
-# Getting Started with Create React App
+# Application: Get you posts
 
-This project was made with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+This project was made with [Create React App](https://github.com/facebook/create-react-app), [TypeScript](https://www.typescriptlang.org/), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/).
+
+## Clone the project
+
+```bash
+# clone the project
+git clone https://github.com/rohbdn07/demo-app.git
+
+# move to root directory
+cd demo-app
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, you can start the application by run:
 
 ### `npm start`
 

@@ -6,6 +6,7 @@ import SmallButton from '../components/buttons/SmallButton'
 import TextInput from '../components/inputs/TextInput'
 import PostList from '../components/posts/PostList'
 import { fetchParticularPostById, fetchPosts } from '../redux/actions/posts/post-actions'
+import Title from '../components/headers/Title'
 
 // styles
 const Container = styled('div')({
@@ -23,7 +24,7 @@ const InputWapper = styled('div')({
   flexWrap: 'wrap',
 })
 
-// display components that comes under home page
+/** this Home component render all child components that comes under home page */
 const HomePage: React.FC = () => {
   const dispatch = useAppDispatch()
   const [postId, setPostId] = React.useState<string>('')
@@ -35,6 +36,7 @@ const HomePage: React.FC = () => {
     setPostId(() => value)
   }
 
+  /** dispatch an action onClick event */
   const clickHandler = (): void => {
     dispatch(fetchPosts())
   }
@@ -55,9 +57,10 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Container>
+        <Title title={'Get your posts'} />
         <InputWapper>
           <TextInput value={postId} handleChange={handleChange} />
-          <SmallButton text='Find' bgColor='blue' clickHandler={serachHandler} />
+          <SmallButton text='Find' bgColor='#415a77' clickHandler={serachHandler} />
           <SmallButton text='Find all' bgColor='black' clickHandler={clickHandler} />
         </InputWapper>
         {message !== '' ? message : <PostList />}

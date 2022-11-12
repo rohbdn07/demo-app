@@ -27,19 +27,29 @@ const InputWapper = styled('div')({
 const HomePage: React.FC = () => {
   const dispatch = useAppDispatch()
   const [postId, setPostId] = React.useState<string>('')
+  const [message, setMessage] = React.useState<string>('')
 
   /** onChange handler for input todo */
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const value = event.target.value
     setPostId(() => value)
   }
 
-  const clickHandler = () => {
+  const clickHandler = (): void => {
     dispatch(fetchPosts())
   }
 
-  const serachHandler = () => {
-    if (postId !== '') dispatch(fetchParticularPostById(parseInt(postId)))
+  /** search handler post by postID */
+  const serachHandler = (): void => {
+    if (postId !== '' && parseInt(postId) <= 100) {
+      dispatch(fetchParticularPostById(parseInt(postId)))
+      setMessage('')
+      return
+    } else if (postId === '') {
+      setMessage('')
+      return
+    }
+    setMessage('Max searchable postID upto 100')
   }
 
   return (
@@ -50,7 +60,7 @@ const HomePage: React.FC = () => {
           <SmallButton text='Find' bgColor='blue' clickHandler={serachHandler} />
           <SmallButton text='Find all' bgColor='black' clickHandler={clickHandler} />
         </InputWapper>
-        <PostList />
+        {message !== '' ? message : <PostList />}
       </Container>
     </>
   )

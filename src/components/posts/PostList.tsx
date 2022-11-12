@@ -1,17 +1,26 @@
 import React from 'react'
+import styled from '@emotion/styled'
 
 import { useAppSelector } from '../../redux/hooks'
 import usePagination from '../../hooks/Pagination'
 import PaginationEl from '../pagination/PaginationEl'
 import Post from './Post'
 
+// styles
+const PaginationContainer = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '10px',
+})
+
 /**
- * @description it display the list of posts
+ * @description this component display the list of posts with pagination
  * @returns JSX Element of post list along with pagination component
  */
 const PostList: React.FC = () => {
   const { allPosts, postById } = useAppSelector((state) => state.post)
-  const [page, setPage] = React.useState(0)
+  const [page, setPage] = React.useState<number>(0)
 
   const checkPosts = (): boolean => allPosts.length !== 0
   const checkParticularPost = (): boolean => postById.id !== 0
@@ -32,15 +41,17 @@ const PostList: React.FC = () => {
         checkPosts() && currentData()?.map((post) => <Post key={post.id} data={post} />)
       )}
       {allPosts.length > 0 && (
-        <PaginationEl
-          data={allPosts}
-          totalPage={maxPage}
-          currentPage={page}
-          defaultPage={1}
-          size={'small'}
-          color={'primary'}
-          handlePageChange={handlePageChange}
-        />
+        <PaginationContainer>
+          <PaginationEl
+            data={allPosts}
+            totalPage={maxPage}
+            currentPage={page}
+            defaultPage={1}
+            size={'small'}
+            color={'primary'}
+            handlePageChange={handlePageChange}
+          />
+        </PaginationContainer>
       )}
     </>
   )

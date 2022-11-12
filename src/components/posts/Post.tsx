@@ -23,7 +23,7 @@ const Post = (props: PostProps) => {
     <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
       <ListItem alignItems='flex-start'>
         <ListItemAvatar>
-          <Avatar alt='Remy Sharp' src='/static/images/avatar/1.jpg' />
+          <Avatar alt='post_image' src='https://picsum.photos/200/300/?blur=2' />
         </ListItemAvatar>
         <ListItemText
           primary={`${props.data.title}`}
@@ -46,9 +46,6 @@ const Post = (props: PostProps) => {
             </React.Fragment>
           }
         />
-        <IconButton edge='end' aria-label='delete'>
-          <DeleteIcon />
-        </IconButton>
       </ListItem>
       <Divider variant='inset' component='li' />
     </List>

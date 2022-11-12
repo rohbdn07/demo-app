@@ -14,9 +14,6 @@ const App: React.FC = () => {
     <>
       <BrowserRouter>
         <Container>
-          <header className='App-header'>
-            <h1>Get your posts</h1>
-          </header>
           <AppRoutes />
         </Container>
       </BrowserRouter>

@@ -20,9 +20,18 @@ const postSlice = createSlice({
   reducers: {
     setAllPost(state, action: PayloadAction<PostModel[]>) {
       state.allPosts = action.payload
+      state.postById = {
+        userId: 0,
+        id: 0,
+        title: '',
+        body: '',
+      }
+      state.message = ''
     },
     setParticularPost(state, action: PayloadAction<PostModel>) {
       state.postById = action.payload
+      state.allPosts = []
+      state.message = ''
     },
     setErrorMessage(state, action: PayloadAction<string>) {
       state.message = action.payload

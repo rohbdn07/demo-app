@@ -3,6 +3,7 @@ import postService from '../../../services/postServices'
 import { setAllPost, setErrorMessage, setParticularPost } from '../../reducer-slices/post-slices'
 import { AppThunk } from '../../store'
 
+/** this function dispatch an action with data(all posts) into reducer */
 export const fetchPosts = (): AppThunk => {
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
   return async (dispatch, getState) => {
@@ -18,6 +19,7 @@ export const fetchPosts = (): AppThunk => {
   }
 }
 
+/** this function dispatch an action with data(particular post by Id) into reducer */
 export const fetchParticularPostById = (postId: number): AppThunk => {
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
   return async (dispatch, getState) => {

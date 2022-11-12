@@ -17,7 +17,6 @@ const axiosFetchAPI: AxiosInstance & AxiosRequestConfig = axios.create({
 /** fetch all posts from baseUrl */
 const getAllPost = async (): Promise<PostModel[]> => {
   const response = await axiosFetchAPI.get<PostModel[]>('posts')
-  console.log('the post service', response)
   return response?.data
 }
 

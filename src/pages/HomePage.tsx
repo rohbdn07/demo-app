@@ -15,6 +15,7 @@ const Container = styled('div')({
   padding: '10px',
   borderRadius: '10px',
   marginBottom: '20px',
+  border: '1px solid black',
 })
 
 const InputWapper = styled('div')({

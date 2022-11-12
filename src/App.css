@@ -1,17 +1,4 @@
-/* .App {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
+/* .App-header {
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -19,5 +6,5 @@
   justify-content: center;
   font-size: calc(2px + 2vmin);
   
-}
+} */
 

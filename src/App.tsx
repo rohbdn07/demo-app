@@ -14,12 +14,10 @@ const App: React.FC = () => {
     <>
       <BrowserRouter>
         <Container>
-          <div className='App'>
-            <header className='App-header'>
-              <h1>Get your posts</h1>
-            </header>
-            <AppRoutes />
-          </div>
+          <header className='App-header'>
+            <h1>Get your posts</h1>
+          </header>
+          <AppRoutes />
         </Container>
       </BrowserRouter>
     </>
